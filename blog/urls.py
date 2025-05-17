@@ -20,6 +20,8 @@ from posts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/',includes('posts.urls')),
+    path('post/', include('posts.urls')),
+    path('<int:id>/', views.google),
+    path('global/', views.globals),
 
 ]

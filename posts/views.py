@@ -33,7 +33,6 @@ posts = [
 
 
 
-
 def home(request):
     html = ""
     for post in posts:
@@ -44,8 +43,8 @@ def home(request):
         <p> {post['content']}</p>
         
         </div>'''
-        name = "Hameed"
-    return render(request,'posts/home.html', {'posts': posts, 'username':'Hameed'})
+        
+    return render(request,'posts/index.html', {'posts': posts, 'username':'Hameed'})
     
 def post(request, id):
     valid_id = False
@@ -64,5 +63,3 @@ def google(request, id):
     url = reverse ('post', args=[id]) 
     return HttpResponseRedirect(url)
 
-def globals(request):
-    return render(request, 'global.html')

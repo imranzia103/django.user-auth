@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/', include('posts.urls')),
     path('<int:id>/', views.google),
-    path('global/', views.globals),
+
 
 ]

@@ -115,52 +115,56 @@
                 </div>
             </div>
         </nav>
-        <div class="content d-flex flex-column">
-            <img class="text-center" src="" />
-                <div class="h5 text-center text-body-secondary">25th January 2024</div>
-    
-                <h1 class="text-center fs-1 fw-bold my-3">{{post_dict.title}}</h1>
-                <div class="d-flex justify-content-center align-items-center flex-wrap ">
-                    
-                        <a href="" class="btn btn-dark opacity-70 text-light m-2">#python</a>
-                   
-                  <a href="" class="btn btn-dark opacity-70 text-light m-2">#python</a>
-                    <a href="" class="btn btn-primary opacity-70 text-light m-2">#datastructures & algorithms</a>
-                    <a href="" class="btn btn-danger opacity-70 text-light m-2">#programming</a>
-                    <a href="" class="btn btn-success opacity-70 text-light m-2">#software developers</a>
-                    <a href="" class="btn btn-dark opacity-70 text-light m-2">#Travel</a>
-                    <a href="" class="btn btn-primary opacity-70 text-light m-2">#Food</a> 
-                </div>
-                <hr class="border border-dark border-1 opacity-50">
-                <p>{{post_dict.content}}</p>    
-            </div>
-            <h2>Comments</h2>
-            <form method='POST'>
-                <textarea name="" class="form-control" id=""></textarea>
-                <button type='submit' class='btn btn-primary'>Comment</button>
-            </form>
-            <h2 class='bg-danger'>Login To Comment</h2>
-          
-            <div class="card m-2">
+        <h1 class="my-3">Latest</h1>
+        <div class="row">
+            {% for post in posts %} 
+            
+            <div class="col-sm-6 mb-3 mb-sm-0">
               
-                <div class="card-body">
+                <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
-                        <div class="col">
-                            <img src="https://static.vecteezy.com/system/resources/previews/000/550/980/non_2x/user-icon-vector.jpg"
-                                class="w-25 img-thumbnail rounded-circle" alt="...">
+                        <div class="col-md-4">
+                            <div class="image-container">
+                                <img src="" class="img-fluid rounded-start" alt="...">
+                            </div>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">Username</h5>
-                                <p class="card-text">Comment from the user</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> 
+                                <h5 class="card-title fw-bold">{{post.title|title}}</h5>
+                                <p class="card-text fw-normal">{{post.content|truncatewords:5}}</p>
+                                <p class="card-text fw-normal"><small class="text-body-secondary">25th Jan 2024</small></p>
+                                <a href=" {% url "post" post.id %}" class="btn btn-dark">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             
+            
+            
+         
+            
+            </div>
+                  {% endfor %}
         </div>
+       
+        <div class="container d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="">Previous</a></li>
+                
+                    <li class="page-item"><a class="page-link" href="">1</a></li>
+            
+
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+              
+                    <li class="page-item"><a class="page-link" href="">3</a></li>
+                    
+                    <li class="page-item"><a class="page-link" href="">Next</a></li>
+                 
+                </ul>
+            </nav>
+        </div>
+
     </div>
 
     <footer class="container  py-3">

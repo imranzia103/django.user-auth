@@ -91,9 +91,14 @@
                                 Categories
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Category</a></li>
-                                <li><a class="dropdown-item" href="#">Category 2</a></li>
-
+                                {% block categories %}
+  {% for categories in categories %}
+    <li>
+      <a class="dropdown-item" href="#">{{ categories }}</a>
+    </li>
+  {% endfor %}
+{% endblock categories %}
+                                
                              
                             </ul>
                         </li>
@@ -141,6 +146,7 @@
     {% block body  %}
     
     {% endblock body %}
+   
 
     <footer class="container  py-3">
         <hr class="border border-dark border-2 opacity-50">
